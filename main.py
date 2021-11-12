@@ -1,29 +1,51 @@
 import os.path
-from gpaScoreFx import disGpa, readGpaFile, writeGpaFile, writeStdGPA
+from fileFx import addData, deleteFiles, displayGPA, editDataFiles, readGpaFile, readStdGpa, readValGpaFile, readValStdGpa, resetProgramme, writeGpaFile, writeStdGPA
 
 def main():
     #check if file present
     if os.path.exists(f'./gpaScore.txt'):
         #yes
         #read the gpaScore and return dictionary
-        d = readGpaFile()
+        readValGpaFile()
+        d1 = readGpaFile()
     
         #check if record of the past score exist
         if os.path.exists(f'./currentGPA.txt'):
             #yes
+            #read the previous record and display the CGPA
+            readValStdGpa(d1)
+            d2 = readStdGpa()
+            displayGPA(d1,d2)
+            
             #prompt the past cgpa then ask update or exit
-            disGpa(d)
-            for i in d:
-                print(i)
+            sentinel = 0
+            while not sentinel in ['a','e','d','r']: # add edit delete reset
+                sentinel = input('Options:\n<A>dd new result\n<E>dit current files\n<D>elete file\n<R>eset the programme\n\nPlease enter the key: ').lower()
+            
+            #check all value for each sentinel    
+            if sentinel == 'a':
+                addData(d1,d2)
+                main()
+            elif sentinel == 'e':
+                editDataFiles()
+                main()
+            elif sentinel == 'd':
+                deleteFiles()
+                main()
+            else:
+                resetProgramme()
+            quit()
         else:
             #no
             #ask for subject number and result
-            writeStdGPA()
+            writeStdGPA(d1)
             main()
     else:
         #no
         #write a new gpaScore file
+        print('Welcome is CGPA calculator, first we need information about your university grading system\n\n')
         writeGpaFile()
         main()
-        
-main()
+
+if __name__ == '__main__':
+    main()

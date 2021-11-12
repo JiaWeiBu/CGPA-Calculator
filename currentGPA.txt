@@ -1,10 +1,10 @@
-Mathematics
+COMPUTING TECHNOLOGY
 B
-Mechanic
-A-
-Physical Chem
-C
-Biology
+MATHEMATICS I
+B
+BIOLOGY I
 A
-Computer Technology
-B
+MECHANICS
+A-
+PHYSICAL CHEMISTRY
+C+
