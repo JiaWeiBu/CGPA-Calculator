@@ -19,22 +19,23 @@ def main():
             
             #prompt the past cgpa then ask update or exit
             sentinel = 0
-            while not sentinel in ['a','e','d','r']: # add edit delete reset
-                sentinel = input('Options:\n<A>dd new result\n<E>dit current files\n<D>elete file\n<R>eset the programme\n\nPlease enter the key: ').lower()
+            while not sentinel in ['a','e','d','r','q']: # add edit delete reset
+                sentinel = input('\n\nOptions:\n<A>dd new result\n<E>dit current files\n<D>elete file\n<R>eset the programme\n<Q>To quit\n\n<A> <E> <D> <R> <Q> : ').lower()
             
             #check all value for each sentinel    
             if sentinel == 'a':
                 addData(d1,d2)
                 main()
             elif sentinel == 'e':
-                editDataFiles()
+                editDataFiles(d1,d2)
                 main()
             elif sentinel == 'd':
                 deleteFiles()
                 main()
-            else:
+            elif sentinel == 'r':
                 resetProgramme()
-            quit()
+            else:
+                quit()
         else:
             #no
             #ask for subject number and result
