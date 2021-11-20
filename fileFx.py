@@ -125,7 +125,7 @@ def writeGpaFile():
             else:
                 screenClear()
     except ValueError:
-        a = input("Invalid value used, press enter to reset the program")
+        enter = input("Invalid value used, press enter to reset the program")
         quit()
 
 #write student GPA            
@@ -346,7 +346,7 @@ def addData(d1,d2):
                 else:
                     screenClear()
         except ValueError:
-            a = input("Invalid value used, press enter to reset the program")
+            enter = input("Invalid value used, press enter to reset the program")
             quit()
     else:
         #creat the gpa score list
@@ -460,7 +460,7 @@ def editDataFiles(d1,d2):
                     dicToFile(d1,'gpaScore.txt')
                     return
                 except ValueError:
-                    z = input('Error: Must use a float number')
+                    enter = input('Error: Must use a float number')
                     return
         #add value
         elif sentinel2 == 'a':
